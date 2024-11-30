@@ -40,10 +40,14 @@ export class Pharmacy {
             this.updateBenefit(drug, 1);
           }
           break;
+        case "Dafalgan":
+          this.updateBenefit(drug, drug.expiresIn < 0 ? -4 : -2);
+          break;
         default:
           this.updateBenefit(drug, drug.expiresIn < 0 ? -2 : -1);
           break;
       }
     });
+    return this.drugs;
   }
-};
+}
